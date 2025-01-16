@@ -5,12 +5,15 @@
   }
 }{\thesection}{1em}{}
 
-\section*{Magnétisme} \label{sec: intro}
+\section{Magnétisme} \label{sec: intro}
 
-On commence avec la loi de Biot-Savard:
+La magnétostatique débute avec la loi de Biot-Savard:
 \begin{align}
-    \vb{B}(\vb{r})&=\frac1c \int\vb{J}(\vb{r})\times\frac{\vb{r}-\vb{r}'}{\norm{\vb{r}-\vb{r}'}^3}\dd[3]{r'}
+    \vb{B}(\vb{r})&=\frac1c \int\vb{J}(\vb{r})\times\frac{\vb{r}-\vb{r}'}{\norm{\vb{r}-\vb{r}'}^3}\dd[3]{r'}.
 \end{align}
+Ce sera notre point de départ pour expliquer les phénomènes magnétiques classiquement
+pour commencer. Notre but est de justifier l'Hamiltonien de Pauli, pour ce faire,
+nous aurons besoin de justifier l'équation de Dirac.
 On peut calculer que
 
 \begin{align}
@@ -103,6 +106,23 @@ lié au potentiel vecteur dipolaire que nous avons écrit
     \vb{B}_{\rm dip.}(\vb{r})&=\nabla\times\vb{A}_{\rm dip.}(\vb{r})\\
                              &=\frac{3\hat{r}(\hat{r}\cdot\vb{m})-\vb{m}}{\norm{r}^3}
 \end{align}
+
+% Demo
+Soit prenons le rotationnel du potentiel vecteur et utilisons l'identité de Jacobi
+\begin{align}
+    \nabla\times\vb{A}_{\rm dip.}
+    &=-\nabla\times\qty(\frac{\hat{r}\times\vb{m}}{r^2})\\
+    &=-\qty(\vb{m}\times\qty(\nabla\times\frac{\hat{r}}{r^2})
+    -\hat{r}\times\qty(\nabla\times\frac{\vb{m}}{r^2})).
+\end{align}
+Or, $\frac{\hat{r}}{r^2}$ est irrotationnel, donc
+\begin{align}
+    \nabla\times\vb{A}_{\rm dip.}
+    &=\hat{r}\times\qty(\nabla\times\frac{\vb{m}}{r^2})
+\end{align}
+:(
+
+
 qui est une propriété à démontrer pour le prochain cours. On peut considérer le
 solide comme un ensemble de petites boucles de courant, ce qui ferait émerger
 le magnétisme
