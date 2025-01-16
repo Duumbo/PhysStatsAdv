@@ -267,6 +267,250 @@ Partons de l'hamiltonien, maintenant quantique
                &=\frac{p^2}{2m}-\gamma\vb{L}\cdot\vb{H}+\frac{q^2}{2mc^2}A^2
 \end{align}
 
+L'équation de Schrödinger n'est pas invariante de Lorentz. Ceci est un problème
+pour la relativité. Il faut donc modifier l'Hamiltonien de sorte à obtenir
+l'équation de Dirac
+\begin{align}
+    E_{\rm class.}&=\frac{P^2}{2m}\\
+    E_{\rm rel.}&=P^2c^2+m^2c^4\\
+    i\hbar\pdv{t} \ket{\psi(t)}&=\mathscr{H}\ket{\psi(t)}
+\end{align}
+On peut donc postuler
+\begin{align}
+    \mathscr{H}&=c\va{\alpha}\cdot\vb{p}+\beta mc^2\\
+    \mathscr{H}^2&=p^2c^2+m^2c^4\\
+                 &=c^2\qty(\va{\alpha}\cdot\vb{p})^2\beta^2m^2c^4+
+                 c\va{\alpha}\cdot\vb{p}\beta mc^2+\beta mc^2\va{\alpha}\cdot\vb{p}
+\end{align}
+Calculons le produit scalaire $\va{\alpha}\cdot\vb{p}$
+\begin{align}
+    \va{\alpha}\cdot\vb{p}&=\qty(\alpha_ip_i)^2\\
+                          &=\alpha_ip_i\alpha_jp_j\\
+                          &=\alpha_i^2p_i^2+\sum_{i\neq j}\{\alpha_i,\alpha_j\}
+                          p_ip_j
+\end{align}
+On doit poser $\{\alpha_i,\alpha_i\}=0$, ce qui implique que les symboles
+$\alpha_i$ anti-commutent. On peut donc continuer
+\begin{align}
+    mc^2\{\alpha_i,\beta\}p_i=0\\
+    \Rightarrow\ \{\alpha_i,\beta\}=0.
+\end{align}
+On peut trouver des matrices qui respectent ces conditions. Les matrices de Dirac
+sont
+\begin{align}
+    \beta&=
+    \begin{pmatrix}
+        1 & 0 \\ 0 & -1
+    \end{pmatrix}\\
+    \va{\alpha}&=
+    \begin{pmatrix}
+        0 & \va{\sigma}\\
+        \va{\sigma} & 0
+    \end{pmatrix}
+\end{align}
+l'équation de Schrödinger se transforme donc en
+\begin{align}
+    i\hbar\pdv{t} \ket{\psi}&=\qty(c\va{\alpha}\cdot\vb{p}+\beta mc^2)\ket{\psi}\\
+    E\psi(\vb{r})&=\qty(c\va{\alpha}\cdot\vb{p}+\beta mc^2)\psi(\vb{r})\\
+    \psi(\vb{r})&=
+    \begin{pmatrix}
+        \chi(\vb{r})\\ \phi(\vb{r})
+    \end{pmatrix}\\
+    E \begin{pmatrix}
+        \chi \\ \phi
+    \end{pmatrix} &= \qty(
+    \begin{pmatrix}
+        0 & c\va{\sigma}\cdot\vb{p}\\
+        c\va{\alpha}\cdot\vb{p} & 0
+    \end{pmatrix}+
+    \begin{pmatrix}
+        mc^2 & 0\\ 0 & -mc^2
+    \end{pmatrix}
+    )\begin{pmatrix}
+        \chi\\\phi
+    \end{pmatrix}\\
+                \begin{pmatrix}
+                0 \\ 0
+            \end{pmatrix}&=
+    \begin{pmatrix}
+        E-mc^2 & -c\va{\sigma}\cdot\vb{p}\\
+        -c\va{\sigma}\cdot\vb{p} & E+mc^2
+    \end{pmatrix}
+    \begin{pmatrix}
+        \chi \\\phi
+    \end{pmatrix}
+\end{align}
+Lorsqu'on utilise le couplage minimal, il faut faire la substitution
+$\vb{p}\rightarrow\va{\pi}=\vb{p}-\frac qc\vb{A}$.
+On souhaite retrouver l'équation de Schrödinger.
+\begin{align}
+    (E-mc^2)\chi-c\va{\sigma}\cdot\va{\pi}\phi&=0\\
+    (-c\va{\sigma}\cdot\va{\pi})\chi+(E+mc^2)\phi&=0\\
+    \Rightarrow\ \phi&=\frac{c\va{\sigma}\cdot\va{\pi}}{E_s+2mc^2}\chi
+\end{align}
+Où $E_s=E-mc^2$. Dans la limite non-relativiste, $E_s\sim0$, donc
+\begin{align}
+    \phi&\simeq\frac{c\va{\sigma}\cdot\va{\pi}}{2mc^2}\chi\\
+    E_s\chi-c\va{\sigma}\cdot\va{\pi}\qty(\frac{c\va{\sigma}\cdot\va{\pi}}{2mc^2}\chi)&=0\\
+    E_s\chi&=\frac{\qty(\va{\sigma}\cdot\va{\pi})^2}{2m}\chi
+\end{align}
+qui est une équation à la Schrödinger.
+\begin{align}
+    \va{\pi}&=\vb{p}\\
+    \qty(\va{\sigma}\cdot\vb{A})\qty(\va{\sigma}\cdot\vb{B})
+            &=\vb{A}\cdot\vb{B}+i\qty(\vb{A}\times\vb{B})\cdot\va{\sigma}\\
+    \qty(\va{\sigma}\cdot\vb{p})^2&=p^2
+\end{align}
+On ajoute maintenant un potentiel
+\begin{align}
+    \mathscr{H}&=c\va{\alpha}\cdot\vb{p}+\beta mc^2+V(\vb{r})\\
+    \mathscr{H}&=
+    \begin{pmatrix}
+        E-V-mc^2 & -c\va{\sigma}\cdot\vb{p}\\
+        -c\va{\sigma}\cdot\vb{p} & E-V+mc^2\\
+    \end{pmatrix}\\
+    -c&\va{\sigma}\cdot\vb{p}\chi+\qty(E-V+mc^2)\phi=0\\
+    \phi&=\frac{1}{E_s-V+2mc^2}c\va{\sigma}\cdot\vb{p}\chi
+\end{align}
+La limite non-relativiste est donc maintenant
+\begin{align}
+    \phi=\frac1{2mc^2}\qty(1+\frac{E_s-V}{2mc^2})c\va{\sigma}\cdot\vb{p}\chi
+    \qty(E_s-V)\chi-c\va{\sigma}\cdot\vb{p}\phi=0\\
+    (E_s-V)\chi=c\va{\sigma}\cdot\vb{p}\qty(\frac1{2mc^2}\qty(1-\frac{E-V}{2mc^2}
+    c\va{\sigma}\cdot\vb{p}\chi))\\
+    E_s\chi=\qty(\frac{c\va{\sigma}\cdot\vb{p}}{2mc^2}\qty(1-\frac{E_s-V}{2mc^2})
+    c\va{\sigma}\cdot\vb{p}+V)\chi\\
+    E_s=\qty(\qty(\frac{p^2}{2m}+V)-\frac1{2m}(\va{\sigma}\cdot\vb{p})(E_s-V)(\va{\sigma}
+    \cdot\vb{p}))\chi.
+\end{align}
+On veut simplifier le second terme.
+\begin{align}
+    [V(\vb{r}),\vb{p}]&=V\vb{p}-\vb{p}V\\
+    (E_s-V)(\va{\sigma}\cdot\vb{p})
+                      &=\va{\sigma}\cdot\qty((E_s-V)\vb{p})\\
+                      &=\va{\sigma}\cdot\qty(\vb{p}(E_s-V)-[V,\vb{p}])\\
+    E_s\chi&=H_0-\frac1{2m}(\va{\sigma}\cdot\vb{p})\qty((\va{\sigma}\cdot\vb{p})
+    \frac{E_s-V}{2mc^2}-\frac1{2mc^2}\va{\sigma}\cdot[V,\vb{p}]
+    )\\
+           &=H_0-\frac1{2m}\frac{p^2}{2mc^2}\frac{p^2}{2m}
+           +\frac1{4m^2c^2}(\va{\sigma}\cdot\vb{p})\qty(\va{\sigma}\cdot[V,\vb{p}]) \\
+           &=H_0-\frac{p^4}{8m^3c^2}
+           -\frac{\vb{p}\cdot[V,\vb{p}]+i\va{\sigma}\cdot(\vb{p}\times[V,\vb{p}])}
+           {4m^2c^2}\\
+    [\vb{p},V(\vb{r}]&=-i\hbar\nabla V(\vb{r}=-i\hbar e^2\frac{\vb{r}}{r^3}\\
+    -i\frac{i}{4m^3c^2}\va{\sigma}\cdot\qty(\vb{p}\times\qty(-i\hbar e^2
+    \frac{\vb{r}}{r^3}))
+           &=\frac{e^2}{2m^3c^2r^3}\vb{L}\cdot\vb{S}
+\end{align}
+Ce terme est le couplage spin-orbite.
+\begin{align}
+    W_D&=\frac{-\vb{p}}{4m^2c^2}\cdot[\vb{p},V]\\
+    W_D^\dagger&=\frac{[V^\dagger,\vb{p}^\dagger]\cdot\vb{p}^\dagger}{4m^2c^2}\\
+    W_D\neq W_D^\dagger
+\end{align}
+Ce terme nE'st pas hermitien, ce qui est un problème. Ceci vient du fait que
+nous avons pris pour acquis que la composante $\phi$ du spineur de Dirac est
+petite, ce qui peut ne pas être vrai.
+\begin{align}
+    \int\qty(\abs{\phi}^2+\abs{\chi}^2)\dd[3]{r}=1\\
+    \int\qty(\chi^*\frac{p^2}{4m^2c^2}\chi+\chi^*\chi)\dd[3]{r}\\
+    \int\qty(\qty(1+\frac{p^2}{8m^2c^2})\chi)^\dagger
+    \qty(1+\frac{p^2}{8m^2c^2})\chi\dd[3]{r}=1\\
+    \int\abs{\chi_s}^2\dd[3]{r}
+\end{align}
+On peut donc réécrire notre équation avec $\chi_s$ maintenant,
+\begin{align}
+    E_s\chi&=E_s\frac{\chi_s}{\qty(1+\frac{p^2}{8m^2c^2})}\\
+           &=\mathscr{H}_{\rm eff.}\chi\\
+           E_s\frac{\chi_s}{1+\frac{p^2}{8m^2c^2}}
+           &=\mathscr{H}\frac{\chi_s}{1+\frac{p^2}{8m^2c^2}}\\
+           &\simeq\mathscr{H}_{\rm eff.}\chi_s+
+           \qty[\frac{p^2}{8m^2c^2},\mathscr{H}_{\rm eff.}]\chi_s\\
+           &=\mathscr{H}_{\rm eff.}\chi_s
+           +\frac1{8m^2c^2}[p^2,V]\chi_s.
+\end{align}
+Retournons au $W_D$,
+\begin{align}
+    W_D'&=W_D+H_{\rm corr.}\\
+        &=\frac{[p^2,V]}{8m^2c^2}
+        -\frac{1}{4m^2c^2}\vb{p}\cdot[\vb{p},V]\\
+        &=\frac1{8m^2c^2}\qty(
+        -\vb{p}\cdot[\vb{p},V]+[\vb{p},V]\cdot\vb{p})\\
+        &=\frac1{8m^2c^2}[[\vb{p},V]\vb{p}]\\
+        &=\frac{(i\hbar)^2}{8m^2c^2}\nabla^2V\\
+        V=-\frac{e^2}r\\
+        \nabla^2V=-4\pi e^2\delta(\vb{r})\\
+    W_D&=\frac{\pi\hbar e^2}{2m^2c^2}\delta(\vb{r}).
+\end{align}
+On nomme ce terme le terme de Darwin. Cette petite correction d'énergie intervient
+pour les orbitales $s$, comme elle est la seule orbitale qui a un poid non nul
+à $\vb{r}=0$. Avec tous ces développement, on peut maintenant écrire le
+Hamiltonien de structure fine
+\begin{align}
+    \mathscr{H}_{\rm sf.}&=H_0+H_{mv}+H_{so}+H_D\\
+                         &=H_0+\frac{p^4}{8m^3c^4}+\frac{e^2}{2m^2c^2r^3}\vb{L}
+                         \cdot\vb{S}+\frac{\pi e^2\hbar^2}{2m^2c^2}\delta(\vb{r})
+\end{align}
 % subsection Équation de Dirac (end)
+
+\subsection{Magnétisme atomique} % (fold)
+\label{sub:Magnétisme atomique}
+
+Dans un atome, il y a $Z$ électrons.
+\begin{align}
+    \mathscr{H}&=H_0+\sum_{i=1}^Z\qty(-\gamma(\vb{L}_i\times\vb{S}_i)\cdot\vb{H})
+    +\lambda(r_i)\vb{L}_i\cdot\vb{S}_i
+    +\frac{e^2}{8mc^2}\qty(\vb{H}\times\vb{R}_i)^2
+\end{align}
+Pour certaines molécules, seulement le terme diamagnétique reste, comme il ne
+dépend ni de $\vb{L}$, ni de $\vb{S}$. Prenons un champ magnétique constant
+\begin{align}
+    \mathscr{H}&=H_0+\sum_{i=1}^Z\frac{e^2}{8mc^2}(\vb{H}\times\vb{R}_i)^2\\
+    W&=\frac{e^2H^2}{8mc^2}\sum_{i=1}^Z(x^2+y^2)\\
+    \Delta E_0&=\expval{0|W|0}\\
+              &=\frac{e^2H^2}{8mc^2}\sum_{i=1}^Z\expval{0|x^2+y^2|0}\\
+    \expval{0|x^2|0}=\expval{0|y^2|0}&=\frac13\expval{0|R_i^2|0}\\
+\Delta E_0&=\frac{e^2H^2}{12mc^2}\sum_{i=1}^{Z_{\rm eff.}}\expval{0|R_i^2|0}\\
+m_d&=\frac{\delta\Delta E_0}{\delta H}=\chi_d H\\
+\chi_d&=-\frac{e^2}{4mc^2}\sum_{i=1}^{Z_{\rm eff.}}\expval{0|R_i^2|0}
+\end{align}
+
+% subsection Magnétisme atomique (end)
+
+\subsection{Règles de Hund} % (fold)
+\label{sub:Règle de Hund}
+
+Il y a trois règles qu'il faut respecter pour remplir les couches électroniques
+\begin{enumerate}
+    \item Il faut maximiser $\vb{S}=\sum_i\vb{S}_i$.
+    \item Il faut maximiser $\vb{L}=\sum_i\vb{L}_i$.
+    \item Partant du terme spin orbite, $W_{so}=\sum_i\lambda_i\vb{L}_i\cdot\vb{S}_i
+        =\widetilde{\lambda}\vb{L}\cdot\vb{S}$, avec $\widetilde{\lambda}>0$ si
+        plus que demi-rempli. Il faut donc minimiser $J$ si nous sommes à plus
+        que demi-rempli, et maximiser $J$ lorsqu'on est à moins que demi-rempli.
+\end{enumerate}
+\begin{align}
+    W_{so}&=\widetilde{\lambda}\vb{L}\cdot\vb{S}\\
+    \Delta E_0&=\widetilde{\lambda}\expval{
+    J,M,S|\vb{L}\cdot\vb{S}|J,M,S}
+\end{align}
+Rappel
+\begin{align}
+    J_i^2\ket{j_1,j_2,m_1,m_2}&=j_i(j_1+1)\hbar^2\ket{j_1,j_2,m_1,m_2}\\
+    J_{i,z}\ket{j_1,j_2,m_1,m_2}&=m_i\hbar\ket{j_1,j_2,m_1,m_2}\\
+    \vb{J}&=\vb{J}_1+\vb{J}_2\\
+    J^2\ket{j,m}&=j(j+1)\hbar^2\ket{j,m}\\
+    J_z&=m\hbar\ket{j,m}\\
+    J_{1\pm}\ket{j_1,j_2,m_1,m_2}&=\hbar\sqrt{j_1(j_1+1)-m_1(m_1\pm1)}
+    \ket{j_1,j_2,m_1\pm1,m_2}\\
+    J_{\pm}\ket{j,m}&=\hbar\sqrt{j(j+1)-m(m\pm1)}
+    \ket{j,j,m\pm1}\\
+    \ket{j,m}&=\ket{j_1+j_2,j_1+j_2-1}\\
+             &=\sqrt{\frac{j_1}{j_1+j_2}}\ket{j_1,j_2;j_1-1,j_2}
+             +\sqrt{\frac{j_2}{j_1+j_2}}\ket{j_1,j_2;j_1,j_2-1}
+\end{align}
+Les bons nombre quantiques sont donc $j, m,j_1,j_2$.
+
+% subsection Règle de Hund (end)
 
 
