@@ -1,0 +1,252 @@
+% Removing titlerule from section: Introduction
+\titleformat{\section}{
+\normalfont\Large\bfseries{
+  \color{\MasterColor}\titlerule[0.0pt]
+  }
+}{\thesection}{1em}{}
+
+\section*{Magnétisme} \label{sec: intro}
+
+On commence avec la loi de Biot-Savard:
+\begin{align}
+    \vb{B}(\vb{r})&=\frac1c \int\vb{J}(\vb{r})\times\frac{\vb{r}-\vb{r}'}{\norm{\vb{r}-\vb{r}'}^3}\dd[3]{r'}
+\end{align}
+On peut calculer que
+
+\begin{align}
+    \frac{\vb{r}-\vb{r'}}{\norm{\vb{r}-\vb{r}'}^3}&=-\nabla\qty(\frac{1}{\norm{\vb{r}-\vb{r'}}}).
+\end{align}
+Nous allons utiliser la notation que $\nabla$ représente la dérivée par rapport
+au vecteur $\vb{r}$, nous pourrions aussi utiliser la notation $\nabla_{\vb{r}}$.
+Lorsque nous voulons utiliser la dérivée par rapport au vecteur $\vb{r'}$, nous
+utilisons $\nabla'$.
+\begin{align}
+    \vb{B}(\vb{r})&=\frac1c\nabla\times\int\frac{\vb{J}(\vb{r'})}{\norm{\vb{r}-\vb{r'}}}\dd[3]{r'}.
+\end{align}
+On obtient cette équation grâce aux propriétés du gradient:
+\begin{align}
+    \nabla\times(f\vb{J})&=\nabla f\times\vb{J}+f\nabla\times\vb{J},
+\end{align}
+en prenant $f=\frac1{\norm{\vb{r}-\vb{r'}}}$.
+\begin{align}
+    \nabla\times(f\vb{J})&=\nabla\qty(\frac1{\norm{\vb{r}-\vb{r'}}})\times\vb{J}
+        +\frac1{\norm{\vb{r}-\vb{r'}}}\nabla\times\vb{J}(\vb{r'})
+\end{align}
+Le rotationnel d'une quantité ne dépendant pas explicitement de $\vb{r}$ est
+le vecteur nul. On voit donc émerger le potentiel vecteur:
+\begin{align}
+    \vb{B}&=\nabla\times\vb{A}\\
+    \vb{A}&=\frac1c\int\frac{\vb{J}(\vb{r'})}{\norm{\vb{r}-\vb{r'}}}\dd[3]{r'}.
+\end{align}
+Lorsqu'on parle de potentiel vecteur, il est important de bien comprendre la notion
+de choix de jauge. On peut se faire une image de ce que le choix de jauge est
+en pensant au choix du zéro de l'énergie potentielle. Le potentiel vecteur est
+lié à la densité de courant pondérée par la distance.
+
+\subsection{Unités CGS} % (fold)
+\label{sub:Unités CGS}
+Les unités CGS sont définies avec le centimètre, le gramme et la seconde comme
+unités de base, ce qui est différent de SI où l'on utilise le mètre, le kilogramme
+et la seconde. Les équations de Maxwell en SI sont
+
+\begin{align}
+    \nabla\cdot\vb{B}&=0\\
+    \nabla\cdot\vb{E}&=\frac\rho\epsilon_0\\
+    \nabla\times\vb{B}&=\mu_0\qty(\epsilon_0\pdv{\vb{E}}{t}+\vb{J})\\
+    \nabla\times\vb{E}&=-\pdv{\vb{B}}{t},
+\end{align}
+
+En CGS, elles s'écrivent plustot
+
+\begin{align}
+    \nabla\cdot\vb{B}&=0\\
+    \nabla\cdot\vb{E}&=4\pi\rho\\
+    \nabla\times\vb{B}&=\frac1c\qty(\pdv{\vb{E}}{t}+4\pi\vb{J})\\
+    \nabla\times\vb{E}&=-\frac1c\pdv{\vb{B}}{t}
+\end{align}
+
+% subsection Unités CGS (end)
+
+\subsection{Expension multipolaire} % (fold)
+\label{sub:Expension multipolaire}
+
+On peut faire l'expension de
+
+\begin{align}
+    \frac1{\norm{\vb{r}-\vb{r'}}}=\frac1{\norm{r}}+\frac{\vb{r}\cdot\vb{r'}}{\norm{\vb{r}}^3}+\cdots
+\end{align}
+où cette expression est une bonne approximation pour $\norm{\vb{r'}}\ll\norm{\vb{r}}$.
+On peut réécrire le potentiel vecteur
+
+\begin{align}
+    \vb{A}&=\frac1c\frac1{\norm{r}}\int\vb{J}(\vb{r'})\dd[3]{r}
+    +\frac1c\frac1{\norm{r}^3}\int(\vb{r}\cdot\vb{r'})\vb{J}(\vb{r'})\dd[3]{r'}
+    +\cdots
+\end{align}
+
+On définit donc
+\begin{align}
+    \vb{A}_{\rm dip.}&=-\frac1c\frac1{\norm{r}^3}\sum_i\hat{n}_i\frac12\qty[
+    \vb{r}\times\int(\vb{r'}\times\vb{J})\dd[3]{r'}]_i\\
+    \vb{M}(\vb{r}&=\frac1{2c}\vb{r}\times\vb{J}(\vb{r}),
+\end{align}
+où $\vb{M}$ est la densité de moment magnétique dipolaire.
+\begin{align}
+    \vb{A}_{\rm dip.}&=-\frac1{\norm{\vb{r}}^3}\vb{r}\times
+    \int\vb{M}(\vb{r'})\dd[3]{r'}\\
+                     &=-\frac{\hat{r}\times\vb{m}}{r^2},
+\end{align}
+où $\vb{m}$ est le moment magnétique dipolaire. On peut écrire le champ magnétique
+lié au potentiel vecteur dipolaire que nous avons écrit
+
+\begin{align}
+    \vb{B}_{\rm dip.}(\vb{r})&=\nabla\times\vb{A}_{\rm dip.}(\vb{r})\\
+                             &=\frac{3\hat{r}(\hat{r}\cdot\vb{m})-\vb{m}}{\norm{r}^3}
+\end{align}
+qui est une propriété à démontrer pour le prochain cours. On peut considérer le
+solide comme un ensemble de petites boucles de courant, ce qui ferait émerger
+le magnétisme
+
+\begin{align}
+    \vb{m}&=\frac{I}{2c}\int\vb{r}\times\dd{\boldsymbol{\ell}}\\
+    \vb{J}(\vb{r})&=\sum_iq_i\vb{v}_i\delta(\vb{r}-\vb{r}_i\\
+    \vb{m}&=\sum_i\gamma_i\vb{L}_i\\
+    \gamma_i&=\frac{q_i}{2M_ir},
+\end{align}
+qui est l'image classique du magnétisme microscopique.
+
+% subsection Expension multipolaire (end)
+
+\subsection{Force de Lorentz} % (fold)
+\label{sub:Force de Lorentx}
+
+La force de Lorentz est
+
+\begin{align}
+    \vb{F}&=q\qty(\vb{E}+\frac1c\vb{v}\times\vb{B}).
+\end{align}
+
+On peut aussi exprimer le lagrangien non-relativiste
+
+\begin{align}
+    \mathscr{L}&=\frac12mv^2-V\\
+    V&=q\phi(\vb{r})-\frac qc\vb{v}\cdot\vb{A}(\vb{r},t),
+\end{align}
+
+où $\phi(\vb{r})$ est le potentiel électrostatique tel que $\vb{E}=-\nabla\phi$.
+On peut montrer que les équations différentielles sont équivalentes en  utilisant
+les équations d'Euler-Lagrange.
+
+\begin{align}
+    \dv{t} \qty(\pdv{\mathscr{L}}{\dot{q_i}})-\pdv{\mathscr{L}}{q}=0\\
+    \dv{t} \qty(m\vb{v}-\frac qc\vb{A}(\vb{r},t))-q\nabla\phi(\vb{r})+\frac qc\nabla\qty(
+    \vb{v}\cdot\vb{A}(\vb{r},t))=0\\
+    m\ddot{\vb{r}}-\frac qc\dv{\vb{A}(\vb{r},t)}{t}+\pdv{\vb{A}}{t}=-q\vb{E}-\frac qc\nabla(\vb{v}\cdot
+    \vb{A})\\
+\dv{\vb{A}}{t}=\pdv{\vb{A}}{t}+\vb{v}(\nabla\cdot\vb{A})\\
+m\ddot{\vb{r}}=-q\vb{E}-\frac qc\qty(\nabla(\vb{v}\cdot\vb{A})-\vb{v}(\nabla\cdot\vb{A}))
+\end{align}
+
+Qui dit écrire un lagrangien, on peut maintenant travailler sur un Hamiltonien.
+Commençons par définir le moment canonique
+
+\begin{align}
+    \vb{p}&=m\vb{v}+\frac qc\vb{A}\\
+    \mathscr{H}&=\vb{p}\cdot\vb{v}-\mathscr{L}\\
+    \vb{v}&=\frac1m\vb{p}-\frac qc\vb{A}\\
+    \mathscr{H}&=\frac1m\vb{p}\cdot(\vb{p}-\frac qc\vb{A})-\qty(\frac12\frac m{m^2}
+    \qty(\vb{p}-\frac qc\vb{A})^2-q\phi+\frac qc(\vb{p}-\frac qc\vb{A})\cdot\vb{A})\\
+               &=\frac{\qty(\vb{p}-\frac qc\vb{A})^2}{2m}+q\phi\\
+               &=\frac{p^2}{2m}-\frac q{2mc}(\vb{p}\cdot\vb{A}+\vb{A}\cdot\vb{p})
+               +\frac{q^2}{2mc^2}A^2+q\phi,
+\end{align}
+ce qui représente l'électrodynamique classique. Avec un chamo magnétique constant,
+on peut utiliser la jauge symétrique
+
+\begin{align}
+    \vb{A}&=-\frac12\vb{r}\times\vb{B}.
+\end{align}
+
+On se justifie par
+
+\begin{align}
+    \nabla\times\vb{A}&=\frac12\nabla\times(\vb{r}\times\vb{B})\\
+                      &=\frac12\qty((\vb{B}\cdot\nabla)\vb{r}-(\vb{r}\cdot\nabla)\vb{B}
+                      +\vb{r}(\nabla\cdot\vb{B})-\vb{B}(\nabla\cdot\vb{r}))\\
+                      &=\frac12\qty(\vb{B}-(\vb{r}\cdot\nabla)\vb{B}+0-3\vb{B})\\
+                    &=\vb{B}+\frac12(\vb{r}\cdot\nabla)\vb{B},
+\end{align}
+ce qui représente effectivement un champ magnétique constant. Continuons le
+développement du hamiltonien
+
+\begin{align}
+    \mathscr{H}_{\rm class.}&=\frac{p^2}{2m}+\frac q{2mc}\vb{p}\cdot(\vb{r}\times\vb{B})
+    +\frac{q^2}{2mc^2}A^2+q\phi\\
+                            &=\frac{p^2}{2m}-\gamma\vb{L}\cdot\vb{B}+\frac{q^2}{2mc^2}
+                            A^2+q\phi,
+\end{align}
+où l'on voit apparaître le terme de Zeeman et le terme diamagnétique.
+
+% subsection Force de Lorentx (end)
+
+\subsection{Densité de courant lié} % (fold)
+\label{sub:Densité de courant lié}
+
+Dans un solide, une boucle de courant présente une densité de moment magnétique
+
+\begin{align}
+    \vb{J}_{M}&=c\nabla\times\vb{M}(\vb{r})\\
+    \nabla\times\vb{B}&=\frac1c\qty(\pdv{\vb{E}}{t}+4\pi\int\vb{J}(\vb{r})+\vb{J}_M(\vb{r})\dd[3]{r})\\
+    \nabla\times\vb{H}&=\frac{4\pi}{c}\vb{J}\\
+    \vb{H}&=\vb{B}-4\pi\vb{M}(\vb{r}),
+\end{align}
+en réponse linéaire, nous avons que
+\begin{align}
+    \vb{M}&=\chi_m\vb{H}.
+\end{align}
+Ceci est une approximation, en général, la réponse pourrait ne pas être linéaire.
+
+\begin{align}
+    \vb{B}&=\vb{H}\qty(1+4\pi\chi_m)\\
+          &=\mu\vb{H}
+\end{align}
+Les différents régimes possible de $\mu$ sont le diamagnétisme, soit $\mu<1$,
+le paramagnétisme $\mu\ge1$ et le ferromagnétisme $\mu\gg1$.
+
+% subsection Densité de courant lié (end)
+
+\subsection{Théorème de Bohr Van-Leuven} % (fold)
+\label{sub:Théorème de Bohr Van-Leuven}
+
+Posons un petit dipole magnétique. On cherche sa fonction de partition
+
+\begin{align}
+    Z_i&=\int\int\frac{\dd[3]{r_i}\dd[3]{p_i}}{h^3}e^{-\beta \mathscr{H}}\\
+       &=\int\int\frac{\dd[3]{r_i}\dd[3]{p_i}}{h^3}e^{-\beta (\vb{p}-\frac qc\vb{A})^2/2m}.
+\end{align}
+On peut se rendre compte qu'en effectuant le changement de variable $\vb{p'}=\vb{p}-\frac qc\vb{A}$,
+l'intégrale devient la même que pour le cas sans champ magnétique. Il est donc
+impossible d'avoir des effets magnétiques statistique en utilisant seulement
+la physique classique.
+\begin{align}
+    \expval{\vb{m_i}}&=
+       \int\int\frac{\dd[3]{r_i}\dd[3]{p_i'}}{h^3}e^{-\beta (\vb{p'})^2/2m} = 0.
+\end{align}
+Comme il s'agit d'une fonction paire.
+
+% subsection Théorème de Bohr Van-Leuven (end)
+
+\subsection{Équation de Dirac} % (fold)
+\label{sub:Équation de Dirac}
+
+Partons de l'hamiltonien, maintenant quantique
+
+\begin{align}
+    \mathscr{H}&=\frac{p^2}{2m}-\gamma\qty(\vb{p}\cdot\vb{A}+\vb{A}\cdot\vb{p})
+    +\frac{q^2}{2mc^2}A^2\\
+               &=\frac{p^2}{2m}-\gamma\vb{L}\cdot\vb{H}+\frac{q^2}{2mc^2}A^2
+\end{align}
+
+% subsection Équation de Dirac (end)
+
+
