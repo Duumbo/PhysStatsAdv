@@ -31,4 +31,46 @@ Ceci nous mène à la relation de Clausius-Clapeyron
     \dv{p}{T}=\frac{s_1-s_2}{v_1-v_2}
 \end{align}
 
+
+
 % section Introduction aux Transitions de Phase (end)
+
+\subsection{Comportement critique} % (fold)
+\label{sub:Comportement critique}
+
+Pour l'eau
+\begin{align}
+    \kappa&=-\frac1V \qty(\pdv{V}{p})_T>0\\
+    \kappa(T)\sim (T-T_c)^{-\gamma}\qquad(T>T-c)\\
+    \kappa(T)\sim (T_c-T)^{-\gamma'}\qquad(T<T-c)
+\end{align}
+
+On introduit le paramètre d'ordre
+\begin{align}
+    \rho_L-\rho_G\sim(T_c-T)^\beta
+\end{align}
+
+Pour le magnétisme, on utilise la susceptibilité magnétique
+\begin{align}
+    \chi=\qty(\pdv{M}{H})_{T,H\rightarrow0}\\
+    \chi\sim (T-T_c)^{-\gamma}\qquad(T>T_c)\\
+    \chi\sim (T_c-T)^{-\gamma'}\qquad(T<T_c)
+\end{align}
+
+On introduit le paramètre d'ordre
+\begin{align}
+    M=M|_{H=0}+\chi H\\
+    M(T,H)=M(T,0)+\chi(T)H\\
+    M\sim (T_c-T)^\beta\qquad(T<T_c)
+\end{align}
+Les $\beta$ expérimentaux sont près de $0.35$ dans les deux cas, ce qui indique
+une similarité dans les concepts. On peut aussi parler de chaleur spécifique
+
+\begin{align}
+    C_v=\qty(\pdv{Q}{T})_{V,N}\\
+    =T\qty(\pdv{S}{T}­)_V\\
+    C_V\sim(T-T_c)^\alpha\qquad(T>T_c)\\
+    C_V\sim(T_c-T)^{\alpha'}\qquad(T<T_c)\\
+\end{align}
+
+% subsection Comportement critique (end)
