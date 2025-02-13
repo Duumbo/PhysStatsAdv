@@ -1,0 +1,34 @@
+\section{Introduction aux Transitions de Phase} % (fold)
+\label{sec:Introduction aux Transitions de Phase}
+
+Il existe plusieurs sortes de transitions de phases. Selon la classification
+de Erhenfest, les transitions aux premier ordre et au second ordre.
+\begin{enumerate}
+    \item Au premier ordre, la première dérivée de l'énergie est discontinue.
+        $Q\neq0$.
+    \item Au second ordre, la seconde dérivée de l'énergie est discontinue.
+        $Q=0$.
+\end{enumerate}
+La quantité la plus appropriée pour traiter des transitions de phase est
+l'énergie libre de Gibbs. On peut donc égaler les potentiels chimiques pour
+une transition du premier ordre
+\begin{align}
+    \mu_1(T,P)&=\mu_2(T,P)\\
+    \mu_1(T+\delta T,P+\delta P)&=
+    \mu_2(T+\delta T,P+\delta P)\\
+    \qty[\pdv{\mu_1}{T}_P-\pdv{\mu_2}{T}_P]\dd{T}&=
+    \dd{p}\qty[\pdv{\mu_2}{p}_T-\pdv{\mu_1}{p}_T]
+\end{align}
+On peut calculer la dérivée du potentiel chimique selon la température à
+pression constante. Partons de la relation de Gibbs-Duhem
+\begin{align}
+    -S\dd{T}+V\dd{p}-N\dd{\mu}=0\\
+    \qty(\pdv{\mu}{T})_p=\frac{S}{N}=s
+\end{align}
+Ceci nous mène à la relation de Clausius-Clapeyron
+\begin{align}
+    -(s_1-s_2)\dd{T}=(v_2-v_1)\dd{p}\\
+    \dv{p}{T}=\frac{s_1-s_2}{v_1-v_2}
+\end{align}
+
+% section Introduction aux Transitions de Phase (end)

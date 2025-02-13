@@ -1,0 +1,184 @@
+\section{Ensembles Statistiques} % (fold)
+\label{sec:Ensembles Statistiques}
+
+On définit la matrice densité
+\begin{align}
+\rho&=\sum_\lambda q_\lambda\ket{\psi_\lambda}\bra{\psi_\lambda},
+\end{align}
+pour $q_\lambda\in[0,1]$. À partir de ça, on peut avoir la probabilité
+\begin{align}
+    \mathcal{P}_\lambda(a_\lambda)&=\abs{\braket{\psi_\lambda}{a_\lambda}}^2\\
+    \mathcal{P}(a_\lambda)&=\sum_\lambda q_\lambda\mathcal_\lambda(a_\lambda).
+\end{align}
+Grâce à la matrice densité, on peut représenter les mélanges statistiques d'états
+quantiques. On peut utiliser ce formalisme pour écrire les valeurs moyennes.
+\begin{align}
+    \expval{U}&=\sum_a u_a\mathcal{P}_a\\
+              &=\sum_a u_a\sum_\lambda q_\lambda\braket{\psi_\lambda}{u_a}
+\braket{u_a}{\psi_\lambda}\\
+              &=\sum_\lambda q_\lambda\bra{\psi_\lambda}\qty(\sum_a u_a\ket{u_a}
+\bra{u_a})\ket{\psi_\lambda}\\
+              &=\sum_\lambda q_\lambda\bra{\psi_\lambda}U\ket{\psi_\lambda}\\
+              &=\sum_{\lambda,k} q_\lambda\bra{\psi_\lambda}U\ket{u_k}\braket{u_k}{\psi_\lambda}\\
+              &=\sum_{\lambda,k} q_\lambda\braket{u_k}{\psi_\lambda}
+              \bra{\psi_\lambda}U\ket{u_k}\\
+              &=\sum_{k} \bra{u_k}
+              \rho U\ket{u_k}\\
+              &=\trace[\rho U]
+\end{align}
+L'opérateur densité a plusieurs propriétés.
+\begin{itemize}
+    \item Hermiticité
+        \begin{align}
+            \rho=\rho^\dagger
+        \end{align}
+    \item Normalisation
+        \begin{align}
+            \trace[\rho]&=1
+        \end{align}
+    \item Semi-positivité
+        \begin{align}
+            \rho\succ0
+        \end{align}
+    \item Valeurs propres
+        \begin{align}
+            \sum_i d_i=1
+        \end{align}
+    \item Évolution temporelle
+        \begin{align}
+            i\hbar\dv{\rho}{t}&=\qty[H,\rho]\\
+        U(t)&=e^{\sfrac{-iHt}{\hbar}}\\
+        \rho(t)&=\sum_\lambda q_\lambda
+        U(t)\ket{\psi_\lambda}\bra{\psi_\lambda}U^\dagger(t)\\
+               &=\sum_\lambda q_\lambda\ket{\psi_\lambda(t)}\bra{\psi_\lambda(t)}
+        \end{align}
+\end{itemize}
+
+\subsection{Opérateur densité réduit} % (fold)
+\label{sub:Opérateur densité réduit}
+
+Soit un espace de Hilbert
+\begin{align}
+    \mathcal{H}&=\mathcal{H}^A\otimes\mathcal{H}^B\\
+    \rho&=\rho_a\otimes\rho_b
+\end{align}
+La valeur moyenne d'un observable est donc
+\begin{align}
+    \expval{A}&=\expval{A_a\otimes\mathds{1}_b}\\
+              &=\trace\qty[\rho\qty(A_a\otimes\mathds{1}_b)]
+\end{align}
+
+% subsection Opérateur densité réduit (end)
+
+\subsection{Entropie en mécanique statistique} % (fold)
+\label{sub:Entropie en mécanique statistique}
+
+\begin{align}
+    S&=-k_B\sum_\lambda q_\lambda\ln q_\lambda\\
+     &=-k_B\trace[\rho\ln\rho]
+\end{align}
+Les propriétés de l'entropie
+\begin{itemize}
+    \item Positivité
+        \begin{align}
+            S\geq0
+        \end{align}
+    \item Maximum
+        \begin{align}
+            q_\lambda&=\frac1\Omega
+        \end{align}
+        Dans ce cas là, on retrouve l'ensemble micro-canonique.
+    \item Dans le devoir
+        \begin{align}
+            S\leq-k_B\trace[D\ln D']\qquad\forall D'
+        \end{align}
+    \item Additivité\\
+        Pour des corrélations nulles,
+        \begin{align}
+            D&=D_1\otimes D_2\\
+            \Rightarrow\ S&=S_1+S_2
+        \end{align}
+    \item Sous-additivité
+        \begin{align}
+            D&\neq D_1\otimes D_2\\
+            \Rightarrow\ S&\leq S_1+S_2
+        \end{align}
+    \item Concavité (Devoir)
+        \begin{align}
+            S\qty(\sum_j\mu_jD_j)\geq\sum_j\mu_jS(D_j)
+        \end{align}
+\end{itemize}
+
+% subsection Entropie en mécanique statistique (end)
+\subsection{Ensembles} % (fold)
+\label{sub:Ensembles}
+
+\subsubsection{micro-canonique} % (fold)
+\label{sec:micro-canonique}
+
+\begin{align}
+    q_\lambda&=\frac1M\qquad\forall\lambda\\
+    S&=-k_B\trace[\rho\ln\rho]=k_B\ln M\\
+    \Omega(E)&=\rho(E)\delta E=M
+\end{align}
+On peut obtenir la température
+\begin{align}
+    \qty(\pdv{S}{E})_{V,N}&=\frac1T\\
+                          &=k_B\pdv{\ln\Omega}{E}\\
+    \pdv{\ln\Omega}{E}&=\beta
+\end{align}
+
+% subsubsection micro-canonique (end)
+
+% subsection Ensembles (end)
+
+\begin{align}
+    F&=S(D)-\sum_i\zeta_i\expval{A_i}-\zeta_i\trace[D]\\
+    \delta F&=0\\
+    D&=\frac{e^{-\sum_i\zeta_iA_i}}{Z}
+\end{align}
+
+L'entropie se trouve à partir de la fonction de partition
+\begin{align}
+    S&=-k_B\trace[D\ln D]\\
+     &=k_B\ln Z+k_B\sum_i\zeta_i\expval{A_i}
+\end{align}
+
+\begin{align}
+    \dd{S}&=\frac1T\dd{E}+\frac pT\dd{V}-\frac\mu T\dd{N}\\
+    \dd{S}&=k_B\sum_i\zeta_i\dd{\expval{A}_i}\\
+    \pdv{S}{\expval{A_i}}&=k_B\zeta_i
+\end{align}
+
+\subsection{Ensemble canonique}
+
+On peut obtenir l'ensemble canonique à partir de ce que l'on a trouvé pour
+l'ensemble micro-canonique.
+\begin{align}
+    F(T,V,N)&=S(D)-\beta\expval{H}\\
+    D&=\frac{e^{-\beta H}}{Z}\\
+    S&=k_B\ln Z +k_B\beta E\\
+    -k_B\ln Z&=E-TS
+\end{align}
+Où l'on voit apparaître l'énergie libre de Helmoltz.
+
+\subsection{Ensemble isotherme-isobar}
+
+\begin{align}
+    S&=k_B\ln Z+k_B\sum_i\zeta_i\expval{A_i}\\
+     &=k_B\ln Z+k_B\beta\expval{H}+k_Bp\beta\expval{V}\\
+    TS&=k_BT\ln Z+E+pV\\
+    G=-k_BT\ln Z_I&=E+pV-TS
+\end{align}
+Où l'on voit apparaître l'énergie libre de Gibbs.
+
+\subsection{Ensemble Grand-Canonique} % (fold)
+\label{sub:Ensemble Grand-Canonique}
+
+\begin{align}
+    TS&=k_B\ln\Xi+k_B\beta E+pV-\mu N
+\end{align}
+
+% subsection Ensemble Grand-Canonique (end)
+
+% section Ensembles Statistiques (end)

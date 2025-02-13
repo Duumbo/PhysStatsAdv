@@ -513,4 +513,79 @@ Les bons nombre quantiques sont donc $j, m,j_1,j_2$.
 
 % subsection Règle de Hund (end)
 
+\subsection{Clebsh-Gordan} % (fold)
+\label{sub:Clebsh-Gordan}
+
+\begin{align}
+    \ket{J,m_J,L,S}
+    &=
+    \sum_{m_\ell}\sum_{m_s}
+    \ket{L,m_\ell,S,m_s}\braket{L,m_\ell,S,m_s}{J,m_J,L,S}
+\end{align}
+Voir tableau dans les notes.
+Faire la figure des moments cinétiques.
+
+% subsection Clebsh-Gordan (end)
+\subsection{Couplage Spin-Orbite} % (fold)
+\label{sub:Couplage Spin-Orbite}
+
+Pour le cas d'un électron autour d'un atome, il faut combiner les moments
+cinétiques car le moment cinétique orbial et le moment cinétique intrinsèque
+ne commutent plus avec le Hamiltonien.
+\begin{align}
+    H_{\rm S.O.}&=\widetilde{\lambda}\vb{L}\cdot\vb{S}\\
+    [H_{\rm S.O.},\vb{L}]&\neq0
+\end{align}
+Allons chercher la perturbation en supposant $\widetilde{\lambda}$ très petit
+\begin{align}
+    \Delta E
+    &=\widetilde{\lambda}\braket{j,m_J,\ell,s}{j,m_J,\ell,s}\\
+    \vb{J}&=\vb{L}+\vb{L}\\
+    J^2&=L^2+S^2+2\vb{L}\cdot\vb{S}\\
+    \Rightarrow\ \vb{L}\cdot\vb{S}
+       &=\frac12\qty(J^2-L^2-S^2)\\
+    \Delta E
+       &=\widetilde{\lambda}\expval{j,m_J\Big|\frac12(J^2-L^2-S^2)\Big|j,m_J}\\
+       &=\frac{\widetilde{\lambda}\hbar^2}{2}\qty(j(j+1)-\ell(\ell+1)-s(s+1))
+\end{align}
+
+% subsection Couplage Spin-Orbite (end)
+
+\subsection{Atome dans un Champ Magnétique} % (fold)
+\label{sub:Atome dans un Champ Magnétique}
+
+Pour traiter de ce problème, nous allons utiliser le Hamiltonien suivant
+\begin{align}
+    H&=H_0-\gamma\qty(\vb{L}+2\vb{S})\cdot\vb{H}.
+\end{align}
+Nous allons avoir de besoin du théorème de Wigner-Eckart.
+Soit si $\vb{V}$ est tel que
+\begin{align}
+    [J_i,V_i]&=i\epsilon_{ijk}V_k
+\end{align}
+alors $\vb{V}$ est un opérateur vectoriel, qui respecte
+\begin{align}
+    \alpha&=\frac{\expval{\vb{J}\cdot\vb{V}}_\xi}{\hbar^2 j(j+1)}\\
+    \vb{V}&=\frac{\expval{\vb{J}\cdot\vb{V}}_\xi}{\hbar^2 j(j+1)}\vb{J}.
+\end{align}
+On peut donc réexprimer nos opérateurs en terme de $\vb{J}$.
+\begin{align}
+    H&=H_0-\gamma\qty(g_L\vb{L}+g_s\vb{S})\cdot\vb{H}\\
+     &=H_0-\gamma\qty(g_L\frac{\expval{\vb{J}\cdot\vb{L}}_\xi}{\hbar^2 j(j+1)}
+     +g_s\frac{\expval{\vb{S}\cdot\vb{J}}_\xi}{\hbar^2 j(j+1)})\vb{J}\cdot\vb{H}\\
+    \vb{L}\cdot\vb{J}
+     &=\frac12\qty(J^2+L^2-S^2)\\
+    \vb{S}\cdot\vb{J}
+     &=\frac12\qty(J^2+S^2-L^2)\\
+    H&=H_0-\gamma g_J\vb{J}\cdot\vb{H}\\
+    g_J&=\frac32-\frac12\qty(\frac{\ell(\ell+1)-s(s+1)}{j(j+1)})
+\end{align}
+Où $g_J$ est le facteur de Landé.
+
+Soit le Hamiltonien
+\begin{align}
+    H&=H_0+\lambda\sum_{\expval{i,j}}^3\vb{S}_i\cdot\vb{S}_j
+\end{align}
+
+% subsection Atome dans un Champ Magnétique (end)
 
